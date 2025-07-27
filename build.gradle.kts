@@ -1,5 +1,5 @@
 plugins {
-    id("java")
+    id("application")
     id("com.github.ben-manes.versions") version "0.52.0"
 }
 
@@ -15,6 +15,19 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter")
 }
 
+application {
+    mainClass.set("hexlet.code.App")
+}
+
 tasks.test {
     useJUnitPlatform()
+}
+tasks.jar {
+    manifest {
+        attributes(mapOf(
+            "Implementation-Title" to project.name,
+            "Implementation-Version" to project.version,
+            "Main-Class" to "hexlet.code.App"
+        ))
+    }
 }
