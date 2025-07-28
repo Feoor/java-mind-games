@@ -1,14 +1,16 @@
 package hexlet.code;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class App {
-    private static final String[] GAMES = {"Greet", "Even or Odd"};
-    private static final Scanner SCANNER = new Scanner(System.in);
-    private static String name;
+    public static final String[] GAMES = {"Greet", "Even or Odd", "Calculate"};
+    public static final Scanner SCANNER = new Scanner(System.in);
+    public static final Random RANDOM = new Random();
+    public static String userName;
 
     public static void main(final String[] args) {
-        int gameNumber = Cli.getGameNumber(SCANNER, GAMES);
+        int gameNumber = Cli.getGameNumber();
 
         if (gameNumber == -1) {
             return;
@@ -16,11 +18,12 @@ public class App {
 
         greeting();
 
-        Games games = new Games(SCANNER, name);
         switch (gameNumber) {
             case 1:
-                games.evenOrOdd();
+                Games.evenOrOdd();
                 break;
+            case 2:
+                Games.calculateGame();
             default:
                 break;
         }
@@ -30,7 +33,7 @@ public class App {
 
     public static void greeting() {
         System.out.println("Welcome to the Brain Games!");
-        name = Cli.getName(SCANNER);
-        System.out.println("Hello, " + name);
+        userName = Cli.getName();
+        System.out.println("Hello, " + userName);
     }
 }
