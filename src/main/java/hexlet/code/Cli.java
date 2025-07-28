@@ -9,7 +9,6 @@ public final class Cli {
         System.out.print("May I have your name? ");
         return App.SCANNER.nextLine();
     }
-
     public static int getGameNumber() {
         System.out.println("Please enter the game number and press Enter.");
 
@@ -19,9 +18,13 @@ public final class Cli {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
 
-        int choice = App.SCANNER.nextInt() - 1;
+        int choice = App.SCANNER.nextInt();
         App.SCANNER.nextLine();
 
         return choice;
+    }
+    public static String getUserAnswer() {
+        System.out.print("Your answer: ");
+        return App.SCANNER.nextLine();
     }
 }

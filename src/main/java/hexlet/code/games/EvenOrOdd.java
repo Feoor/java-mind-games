@@ -1,39 +1,40 @@
-package hexlet.code;
+package hexlet.code.games;
 
-public final class Games {
-    private Games() {
+import hexlet.code.App;
+import hexlet.code.Cli;
+
+public final class EvenOrOdd implements Game {
+    private EvenOrOdd() {
         throw new IllegalStateException("Utility class");
     }
 
-    public static void evenOrOdd() {
+    public static void run() {
         System.out.println("Answer 'yes' if the number is even, otherwise 'no'");
 
-        final int maxGameScore = 3;
         final int maxBound = 50;
         int score = 0;
-        while (score < maxGameScore) {
+        while (score < App.MAX_GAME_SCORE) {
             int randomNumber = App.RANDOM.nextInt(maxBound);
             System.out.println("Question: " + randomNumber);
             boolean isEven = randomNumber % 2 == 0;
 
-            System.out.print("Your answer: ");
-            String answer = App.SCANNER.nextLine();
+            String userAnswer = Cli.getUserAnswer();
 
             if (isEven) {
-                if (answer.equals("yes")) {
+                if (userAnswer.equals("yes")) {
                     System.out.println("Correct!");
                     score++;
                 } else {
-                    System.out.println("'" + answer + "' is not a valid answer ;(. Correct answer was `yes`");
+                    System.out.println("'" + userAnswer + "' is not a valid answer ;(. Correct answer was `yes`.");
                     System.out.println("Let's try again, " + App.userName + "!");
                     score = 0;
                 }
             } else {
-                if (answer.equals("no")) {
+                if (userAnswer.equals("no")) {
                     System.out.println("Correct!");
                     score++;
                 } else {
-                    System.out.println("'" + answer + "' is not a valid answer ;(. Correct answer was `no`");
+                    System.out.println("'" + userAnswer + "' is not a valid answer ;(. Correct answer was `no`");
                     System.out.println("Let's try again, " + App.userName + "!");
                     score = 0;
                 }
@@ -41,9 +42,5 @@ public final class Games {
         }
 
         System.out.println("Congratulations, " + App.userName + "!");
-    }
-
-    public static void calculateGame() {
-        return;
     }
 }

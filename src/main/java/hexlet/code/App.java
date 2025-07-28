@@ -7,26 +7,20 @@ public class App {
     public static final String[] GAMES = {"Greet", "Even or Odd", "Calculate"};
     public static final Scanner SCANNER = new Scanner(System.in);
     public static final Random RANDOM = new Random();
+    public static final int MAX_GAME_SCORE = 3;
     public static String userName;
 
     public static void main(final String[] args) {
         int gameNumber = Cli.getGameNumber();
 
-        if (gameNumber == -1) {
+        if (gameNumber == 0) {
             return;
         }
 
+        // User greeting by default
         greeting();
 
-        switch (gameNumber) {
-            case 1:
-                Games.evenOrOdd();
-                break;
-            case 2:
-                Games.calculateGame();
-            default:
-                break;
-        }
+        Engine.runSelectedGame(gameNumber);
 
         SCANNER.close();
     }
