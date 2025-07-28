@@ -8,5 +8,9 @@
 
 Mind Games is a console game written in Java
 
+### Current available games
+* **Even or Odd**
+* **Calculate Game**
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/Feoor/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Feoor/java-project-61/actions)

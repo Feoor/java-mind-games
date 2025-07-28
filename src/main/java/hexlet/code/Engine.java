@@ -1,6 +1,7 @@
 package hexlet.code;
 
 import hexlet.code.games.EvenOrOdd;
+import hexlet.code.games.CalculateGame;
 
 public final class Engine {
     private Engine() {
@@ -11,6 +12,9 @@ public final class Engine {
         switch (selectedGame) {
             case 2:
                 EvenOrOdd.run();
+                break;
+            case 3:
+                CalculateGame.run();
                 break;
             default:
                 break;
