@@ -1,5 +1,6 @@
 package hexlet.code;
 
+import hexlet.code.games.GCD;
 import hexlet.code.games.Game;
 import hexlet.code.games.EvenOrOdd;
 import hexlet.code.games.CalculateGame;
@@ -7,7 +8,7 @@ import hexlet.code.games.CalculateGame;
 import java.util.Random;
 
 public class Engine {
-    private static final String[] GAMES = {"Greet", "Even or Odd", "Calculate"};
+    private static final String[] GAMES = {"Greet", "Even or Odd", "Calculate", "GCD"};
     private static final Random RANDOM = new Random();
     private final Game game;
     private final int maxGameScore;
@@ -20,6 +21,7 @@ public class Engine {
         this.game = switch (selectedGame) {
             case 2 -> new EvenOrOdd();
             case 3 -> new CalculateGame();
+            case 4 -> new GCD();
             default -> throw new IllegalArgumentException("Invalid game selected");
         };
     }
@@ -29,6 +31,7 @@ public class Engine {
         this.game = switch (selectedGame) {
             case 2 -> new EvenOrOdd();
             case 3 -> new CalculateGame();
+            case 4 -> new GCD();
             default -> throw new IllegalArgumentException("Invalid game selected");
         };
     }
