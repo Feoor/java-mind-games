@@ -12,8 +12,10 @@ public final class Cli {
     public static int getGameNumber() {
         System.out.println("Please enter the game number and press Enter.");
 
-        for (int i = 0; i < App.GAMES.length; i++) {
-            System.out.println((i + 1) + " - " + App.GAMES[i]);
+        String[] gamesList = Engine.getGamesList();
+
+        for (int i = 0; i < gamesList.length; i++) {
+            System.out.println((i + 1) + " - " + gamesList[i]);
         }
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
@@ -23,8 +25,7 @@ public final class Cli {
 
         return choice;
     }
-    public static String getUserAnswer() {
-        System.out.print("Your answer: ");
+    public static String getNextLine() {
         return App.SCANNER.nextLine();
     }
 }

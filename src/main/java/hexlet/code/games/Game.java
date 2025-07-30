@@ -1,6 +1,8 @@
 package hexlet.code.games;
 
 public interface Game {
-    static void run() {
-    }
+    String getDescription();
+    String getNextQuestion();
+    boolean checkAnswer(String userAnswer);
+    String getAnswer();
 }

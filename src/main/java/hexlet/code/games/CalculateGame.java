@@ -1,43 +1,37 @@
 package hexlet.code.games;
 
-import hexlet.code.App;
-import hexlet.code.Cli;
+import hexlet.code.Engine;
 
-public final class CalculateGame implements Game {
-    private CalculateGame() {
-        throw new IllegalStateException("Utility class");
+public class CalculateGame implements Game {
+    private final char[] expressions = {'+', '-', '*'};
+    private int answer;
+
+    public String getDescription() {
+        return "What is the result of expression?";
+    }
+    public String getNextQuestion() {
+        int maxBound = 25;
+        int firstNumber = Engine.getRandomNumber(maxBound);
+        int secondNumber = Engine.getRandomNumber(maxBound);
+        char randomExpression = expressions[Engine.getRandomNumber(expressions.length)];
+
+        answer = switch (randomExpression) {
+            case '+' -> firstNumber + secondNumber;
+            case '-' -> firstNumber - secondNumber;
+            case '*' -> firstNumber * secondNumber;
+            default ->
+                // By default, is addition
+                firstNumber + secondNumber;
+        };
+
+        return firstNumber + " " + randomExpression + " " + secondNumber;
+    }
+    public boolean checkAnswer(String userAnswer) {
+        int userAnswerInt = Integer.parseInt(userAnswer);
+        return userAnswerInt == this.answer;
     }
 
-    public static void run() {
-        System.out.println("What is the result of expression?");
-
-        final char[] expressions = {'+', '-', '*'};
-        final int maxBound = 25;
-        int score = 0;
-        while (score < App.MAX_GAME_SCORE) {
-            int firstNumber = App.RANDOM.nextInt(maxBound);
-            int secondNumber = App.RANDOM.nextInt(maxBound);
-            char randomExpression = expressions[App.RANDOM.nextInt(expressions.length)];
-
-            int questionAnswer = switch (randomExpression) {
-                case '+' -> firstNumber + secondNumber;
-                case '-' -> firstNumber - secondNumber;
-                case '*' -> firstNumber * secondNumber;
-                default ->
-                    // By default, is addition
-                    firstNumber + secondNumber;
-            };
-
-            System.out.println("Question: " + firstNumber + " " + randomExpression  + " " + secondNumber);
-            int userAnswer = Integer.parseInt(Cli.getUserAnswer());
-            if (questionAnswer == userAnswer) {
-                System.out.println("Correct!");
-                score++;
-            } else {
-                System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '" + userAnswer + "'.");
-                System.out.println("Let's try again, " + App.userName + "!");
-                score = 0;
-            }
-        }
+    public String getAnswer() {
+        return String.valueOf(answer);
     }
 }
