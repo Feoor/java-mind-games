@@ -1,14 +1,15 @@
 package hexlet.code;
 
-import hexlet.code.games.GCD;
 import hexlet.code.games.Game;
 import hexlet.code.games.EvenOrOdd;
 import hexlet.code.games.CalculateGame;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 import java.util.Random;
 
 public class Engine {
-    private static final String[] GAMES = {"Greet", "Even or Odd", "Calculate", "GCD"};
+    private static final String[] GAMES = {"Greet", "Even or Odd", "Calculate", "GCD", "Progression"};
     private static final Random RANDOM = new Random();
     private final Game game;
     private final int maxGameScore;
@@ -18,21 +19,21 @@ public class Engine {
     Engine(final int maxGameScore, final int selectedGame, final String username) {
         this.maxGameScore = maxGameScore;
         this.username = username;
-        this.game = switch (selectedGame) {
-            case 2 -> new EvenOrOdd();
-            case 3 -> new CalculateGame();
-            case 4 -> new GCD();
-            default -> throw new IllegalArgumentException("Invalid game selected");
-        };
+        this.game = getGamyByNumber(selectedGame);
     }
     Engine(final int selectedGame, final String username) {
         this.maxGameScore = 3;
         this.username = username;
-        this.game = switch (selectedGame) {
+        this.game = getGamyByNumber(selectedGame);
+    }
+
+    private static Game getGamyByNumber(final int number) {
+        return switch (number) {
             case 2 -> new EvenOrOdd();
             case 3 -> new CalculateGame();
             case 4 -> new GCD();
-            default -> throw new IllegalArgumentException("Invalid game selected");
+            case 5 -> new Progression();
+            default -> throw new IllegalArgumentException("Invalid game selected: " + number);
         };
     }
 

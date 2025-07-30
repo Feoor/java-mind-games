@@ -22,7 +22,6 @@ public class GCD implements Game {
     public String getDescription() {
         return "Find the greatest common divisor of given numbers.";
     }
-
     public String getNextQuestion() {
         int maxBound = 50;
         int firstNumber = Engine.getRandomNumber(maxBound);
