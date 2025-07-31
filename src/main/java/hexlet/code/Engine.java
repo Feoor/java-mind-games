@@ -5,11 +5,12 @@ import hexlet.code.games.EvenOrOdd;
 import hexlet.code.games.CalculateGame;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 import java.util.Random;
 
 public class Engine {
-    private static final String[] GAMES = {"Greet", "Even or Odd", "Calculate", "GCD", "Progression"};
+    private static final String[] GAMES = {"Greet", "Even or Odd", "Calculate", "GCD", "Progression", "Prime"};
     private static final Random RANDOM = new Random();
     private final Game game;
     private final int maxGameScore;
@@ -33,6 +34,7 @@ public class Engine {
             case 3 -> new CalculateGame();
             case 4 -> new GCD();
             case 5 -> new Progression();
+            case 6 -> new Prime();
             default -> throw new IllegalArgumentException("Invalid game selected: " + number);
         };
     }
