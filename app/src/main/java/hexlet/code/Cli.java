@@ -9,10 +9,8 @@ public final class Cli {
         System.out.print("May I have your name? ");
         return App.SCANNER.nextLine();
     }
-    public static int getGameNumber() {
+    public static String getSelectedGame(String[] gamesList) {
         System.out.println("Please enter the game number and press Enter.");
-
-        String[] gamesList = Engine.getGamesList();
 
         for (int i = 0; i < gamesList.length; i++) {
             System.out.println((i + 1) + " - " + gamesList[i]);
@@ -20,10 +18,7 @@ public final class Cli {
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
 
-        int choice = App.SCANNER.nextInt();
-        App.SCANNER.nextLine();
-
-        return choice;
+        return App.SCANNER.nextLine();
     }
     public static String getNextLine() {
         return App.SCANNER.nextLine();

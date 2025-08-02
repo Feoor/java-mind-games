@@ -1,47 +1,24 @@
 package hexlet.code;
 
 import hexlet.code.games.Game;
-import hexlet.code.games.EvenOrOdd;
-import hexlet.code.games.CalculateGame;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Progression;
-import hexlet.code.games.Prime;
 
 import java.util.Random;
 
 public class Engine {
-    private static final String[] GAMES = {"Greet", "Even or Odd", "Calculate", "GCD", "Progression", "Prime"};
     private static final Random RANDOM = new Random();
     private final Game game;
-    private final int maxGameScore;
     private final String username;
     private int score = 0;
 
-    Engine(final int maxGameScore, final int selectedGame, final String username) {
-        this.maxGameScore = maxGameScore;
+    Engine(final Game game, final String username) {
         this.username = username;
-        this.game = getGamyByNumber(selectedGame);
-    }
-    Engine(final int selectedGame, final String username) {
-        this.maxGameScore = 3;
-        this.username = username;
-        this.game = getGamyByNumber(selectedGame);
-    }
-
-    private static Game getGamyByNumber(final int number) {
-        return switch (number) {
-            case 2 -> new EvenOrOdd();
-            case 3 -> new CalculateGame();
-            case 4 -> new GCD();
-            case 5 -> new Progression();
-            case 6 -> new Prime();
-            default -> throw new IllegalArgumentException("Invalid game selected: " + number);
-        };
+        this.game = game;
     }
 
     public void runGame() {
         System.out.println(game.getDescription());
 
+        int maxGameScore = 3;
         while (score < maxGameScore) {
             System.out.println("Question: " + game.getNextQuestion());
 
@@ -70,9 +47,6 @@ public class Engine {
     }
 
     // Getter's
-    public static String[] getGamesList() {
-        return GAMES;
-    }
     public int getScore() {
         return score;
     }
