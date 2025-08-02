@@ -38,7 +38,6 @@ public class App {
                 game = new Prime();
                 break;
             default:
-                System.out.println("Invalid game selection.");
                 return;
         }
 
