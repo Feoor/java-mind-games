@@ -58,6 +58,6 @@ public class App {
     public static void greeting() {
         System.out.println("Welcome to the Brain Games!");
         userName = Cli.getName();
-        System.out.println("Hello, " + userName);
+        System.out.println("Hello, " + userName + "!");
     }
 }
