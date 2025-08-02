@@ -15,14 +15,15 @@ public class CalculateGame implements Game {
         int secondNumber = Engine.getRandomNumber(maxBound);
         char randomExpression = expressions[Engine.getRandomNumber(expressions.length)];
 
-        answer = String.valueOf(switch (randomExpression) {
+        int answerInt = switch (randomExpression) {
             case '+' -> firstNumber + secondNumber;
             case '-' -> firstNumber - secondNumber;
             case '*' -> firstNumber * secondNumber;
             default ->
                 // By default, is addition
                 firstNumber + secondNumber;
-        });
+        };
+        answer = String.valueOf(answerInt);
 
         return firstNumber + " " + randomExpression + " " + secondNumber;
     }

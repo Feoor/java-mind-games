@@ -2,6 +2,7 @@ package hexlet.code;
 
 import hexlet.code.games.Game;
 
+import java.util.NoSuchElementException;
 import java.util.Random;
 
 public class Engine {
@@ -23,7 +24,14 @@ public class Engine {
             System.out.println("Question: " + game.getNextQuestion());
 
             System.out.print("Your answer: ");
-            String userAnswer = Cli.getNextLine();
+
+            String userAnswer;
+            try {
+                userAnswer = Cli.getNextLine();
+            } catch (NoSuchElementException e) {
+                return;
+            }
+
             boolean isCorrect = game.checkAnswer(userAnswer);
             if (isCorrect) {
                 System.out.println("Correct!");
