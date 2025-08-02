@@ -22,7 +22,7 @@ public class Engine {
         while (score < maxGameScore) {
             System.out.println("Question: " + game.getNextQuestion());
 
-            System.out.println("Your answer: ");
+            System.out.print("Your answer: ");
             String userAnswer = Cli.getNextLine();
             boolean isCorrect = game.checkAnswer(userAnswer);
             if (isCorrect) {

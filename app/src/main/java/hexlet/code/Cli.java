@@ -6,7 +6,7 @@ public final class Cli {
     }
 
     public static String getName() {
-        System.out.println("May I have your name? ");
+        System.out.print("May I have your name? ");
         return App.SCANNER.nextLine();
     }
     public static String getSelectedGame(String[] gamesList) {
@@ -16,7 +16,7 @@ public final class Cli {
             System.out.println((i + 1) + " - " + gamesList[i]);
         }
         System.out.println("0 - Exit");
-        System.out.println("Your choice: ");
+        System.out.print("Your choice: ");
 
         return App.SCANNER.nextLine();
     }
