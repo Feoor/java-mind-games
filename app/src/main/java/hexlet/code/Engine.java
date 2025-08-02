@@ -40,7 +40,7 @@ public class Engine {
                 System.out.println("'" + userAnswer + "' is wrong answer ;(. Correct answer was '"
                         + game.getAnswer() + "'.");
                 System.out.println("Let's try again, " + username + "!");
-                score = 0;
+                return;
             }
         }
 
