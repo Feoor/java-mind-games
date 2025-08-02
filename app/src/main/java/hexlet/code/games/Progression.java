@@ -19,7 +19,7 @@ public class Progression implements Game {
 
         for (int i = 0; i < numbers.length; i++) {
             if (i == hiddenIndex) {
-                sb.append("... ");
+                sb.append(".. ");
             } else {
                 sb.append(numbers[i]).append(" ");
             }
