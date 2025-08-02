@@ -24,7 +24,7 @@ public class Prime implements Game {
     }
 
     public String getDescription() {
-        return "Answer 'yes' if the number is prime, otherwise 'no'";
+        return "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     }
     public String getNextQuestion() {
         final int maxBound = 50;

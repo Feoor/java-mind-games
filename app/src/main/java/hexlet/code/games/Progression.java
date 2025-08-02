@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Progression implements Game {
-    private int answer;
+    private String answer;
 
     private static int[] getProgression(final int init, final int step, final int size) {
         int[] numbers = new int[size];
@@ -41,15 +41,14 @@ public class Progression implements Game {
         int[] numbersProgression =  getProgression(initNumber, stepNumber, arraySize);
 
         int randomHiddenNumber = Engine.getRandomNumber(numbersProgression.length);
-        answer = numbersProgression[randomHiddenNumber];
+        answer = String.valueOf(numbersProgression[randomHiddenNumber]);
 
         return getQuestionString(numbersProgression, randomHiddenNumber);
     }
     public boolean checkAnswer(String userAnswer) {
-        int userAnswerInt = Integer.parseInt(userAnswer);
-        return answer == userAnswerInt;
+        return userAnswer.equals(answer);
     }
     public String getAnswer() {
-        return String.valueOf(answer);
+        return answer;
     }
 }

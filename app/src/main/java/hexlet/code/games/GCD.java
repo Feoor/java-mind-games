@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class GCD implements Game {
-    private int answer;
+    private String answer;
 
     private static int gcd(int a, int b) {
         if (b == 0) {
@@ -26,15 +26,14 @@ public class GCD implements Game {
         int maxBound = 50;
         int firstNumber = Engine.getRandomNumber(maxBound);
         int secondNumber = Engine.getRandomNumber(maxBound);
-        answer = gcd(firstNumber, secondNumber);
+        answer = String.valueOf(gcd(firstNumber, secondNumber));
 
         return firstNumber + " " + secondNumber;
     }
     public boolean checkAnswer(String userAnswer) {
-        int userAnswerInt = Integer.parseInt(userAnswer);
-        return answer == userAnswerInt;
+        return userAnswer.equals(answer);
     }
     public String getAnswer() {
-        return String.valueOf(answer);
+        return answer;
     }
 }

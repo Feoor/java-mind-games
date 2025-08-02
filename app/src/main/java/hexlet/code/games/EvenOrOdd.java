@@ -6,7 +6,7 @@ public class EvenOrOdd implements Game {
     private boolean isEven;
 
     public String getDescription() {
-        return "Answer 'yes' if the number is even, otherwise 'no'";
+        return "Answer 'yes' if the number is even, otherwise answer 'no'.";
     }
     public String getNextQuestion() {
         final int maxBound = 50;
