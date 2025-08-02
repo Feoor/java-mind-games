@@ -1,16 +1,21 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.CalculateGame;
+import hexlet.code.games.EvenOrOdd;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Game;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
 public class App {
-    private static final String[] games = {"Greet", "Even or Odd", "Calculate", "GCD", "Progression", "Prime"};
+    private static final String[] GAMES = {"Greet", "Even or Odd", "Calculate", "GCD", "Progression", "Prime"};
     public static final Scanner SCANNER = new Scanner(System.in);
     private static String userName;
 
     public static void main(final String[] args) {
-        String selectedGame = Cli.getSelectedGame(games);
+        String selectedGame = Cli.getSelectedGame(GAMES);
 
         Game game;
         switch (selectedGame) {
