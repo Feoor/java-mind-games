@@ -2,7 +2,8 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class CalculateGame implements Game {
+public final class CalculateGame implements Game {
+    private static final int MAX_BOUND = 25;
     private final char[] expressions = {'+', '-', '*'};
     private String answer;
 
@@ -10,9 +11,8 @@ public class CalculateGame implements Game {
         return "What is the result of the expression?";
     }
     public String getNextQuestion() {
-        int maxBound = 25;
-        int firstNumber = Engine.getRandomNumber(maxBound);
-        int secondNumber = Engine.getRandomNumber(maxBound);
+        int firstNumber = Engine.getRandomNumber(MAX_BOUND);
+        int secondNumber = Engine.getRandomNumber(MAX_BOUND);
         char randomExpression = expressions[Engine.getRandomNumber(expressions.length)];
 
         int answerInt = switch (randomExpression) {
@@ -27,7 +27,7 @@ public class CalculateGame implements Game {
 
         return firstNumber + " " + randomExpression + " " + secondNumber;
     }
-    public boolean checkAnswer(String userAnswer) {
+    public boolean checkAnswer(final String userAnswer) {
         return userAnswer.equals(answer);
     }
 

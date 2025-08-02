@@ -2,10 +2,10 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Prime implements Game {
+public final class Prime implements Game {
     private boolean isPrime;
 
-    private static boolean isPrime(int n) {
+    private static boolean isPrime(final int n) {
         if (n < 2) {
             return false;
         } else if (n == 2) {
@@ -33,7 +33,7 @@ public class Prime implements Game {
 
         return String.valueOf(randomNumber);
     }
-    public boolean checkAnswer(String userAnswer) {
+    public boolean checkAnswer(final String userAnswer) {
         return isPrime && userAnswer.equals("yes") || !isPrime && userAnswer.equals("no");
     }
     public String getAnswer() {

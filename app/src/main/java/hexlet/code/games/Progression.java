@@ -2,13 +2,16 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class Progression implements Game {
+public final class Progression implements Game {
+    private static final int MAX_INIT_BOUND = 30;
+    private static final int MAX_STEP_BOUND = 15;
+    private static final int PROGRESSION_ARRAY_SIZE = 10;
     private String answer;
 
-    private static int[] getProgression(final int init, final int step, final int size) {
-        int[] numbers = new int[size];
+    private static int[] getProgression(final int init, final int step) {
+        int[] numbers = new int[PROGRESSION_ARRAY_SIZE];
         numbers[0] = init;
-        for (int i = 1; i < size; i++) {
+        for (int i = 1; i < PROGRESSION_ARRAY_SIZE; i++) {
             numbers[i] = numbers[i - 1] + step;
         }
 
@@ -32,20 +35,17 @@ public class Progression implements Game {
         return "What number is missing in the progression?";
     }
     public String getNextQuestion() {
-        int maxInitBound = 25;
-        int maxStepBound = 10;
-        int initNumber = Engine.getRandomNumber(maxInitBound);
-        int stepNumber = Engine.getRandomNumber(maxStepBound);
+        int initNumber = Engine.getRandomNumber(MAX_INIT_BOUND);
+        int stepNumber = Engine.getRandomNumber(MAX_STEP_BOUND);
 
-        int arraySize = 10;
-        int[] numbersProgression =  getProgression(initNumber, stepNumber, arraySize);
+        int[] numbersProgression = getProgression(initNumber, stepNumber);
 
         int randomHiddenNumber = Engine.getRandomNumber(numbersProgression.length);
         answer = String.valueOf(numbersProgression[randomHiddenNumber]);
 
         return getQuestionString(numbersProgression, randomHiddenNumber);
     }
-    public boolean checkAnswer(String userAnswer) {
+    public boolean checkAnswer(final String userAnswer) {
         return userAnswer.equals(answer);
     }
     public String getAnswer() {

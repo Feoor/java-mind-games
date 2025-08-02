@@ -2,7 +2,7 @@ package hexlet.code.games;
 
 import hexlet.code.Engine;
 
-public class EvenOrOdd implements Game {
+public final class EvenOrOdd implements Game {
     private boolean isEven;
 
     public String getDescription() {
@@ -15,7 +15,7 @@ public class EvenOrOdd implements Game {
 
         return String.valueOf(randomNumber);
     }
-    public boolean checkAnswer(String userAnswer) {
+    public boolean checkAnswer(final String userAnswer) {
         return isEven && userAnswer.equals("yes") || !isEven && userAnswer.equals("no");
     }
     public String getAnswer() {

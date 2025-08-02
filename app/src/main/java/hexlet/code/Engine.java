@@ -5,22 +5,22 @@ import hexlet.code.games.Game;
 import java.util.NoSuchElementException;
 import java.util.Random;
 
-public class Engine {
+public final class Engine {
+    private static final int MAX_GAME_SCORE = 3;
     private static final Random RANDOM = new Random();
     private final Game game;
     private final String username;
     private int score = 0;
 
-    Engine(final Game game, final String username) {
-        this.username = username;
-        this.game = game;
+    Engine(final Game inputGame, final String inputUsername) {
+        this.username = inputUsername;
+        this.game = inputGame;
     }
 
     public void runGame() {
         System.out.println(game.getDescription());
 
-        int maxGameScore = 3;
-        while (score < maxGameScore) {
+        while (score < MAX_GAME_SCORE) {
             System.out.println("Question: " + game.getNextQuestion());
 
             System.out.print("Your answer: ");

@@ -9,7 +9,7 @@ public final class Cli {
         System.out.print("May I have your name? ");
         return App.SCANNER.nextLine();
     }
-    public static String getSelectedGame(String[] gamesList) {
+    public static String getSelectedGame(final String[] gamesList) {
         System.out.println("Please enter the game number and press Enter.");
 
         for (int i = 0; i < gamesList.length; i++) {
