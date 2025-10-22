@@ -16,4 +16,4 @@ Mind Games is a console game written in Java
 * **Prime**
 
 ### Hexlet tests and linter status:
-[![Actions Status](https://github.com/Feoor/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Feoor/java-project-61/actions)
+[![Actions Status](https://github.com/Feoor/java-project-61/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Feoor/java-project-61/actions) [![show-directory](https://github.com/Feoor/java-mind-games/actions/workflows/show-directory.yml/badge.svg)](https://github.com/Feoor/java-mind-games/actions/workflows/show-directory.yml)
